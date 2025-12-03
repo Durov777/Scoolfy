@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ModernSpace | Функциональный сайт</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Навигация -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">Modern<span>Space</span></a>
+            <ul class="nav-menu">
+                <li><a href="#home">Главная</a></li>
+                <li><a href="#features">Функции</a></li>
+                <li><a href="#gallery">Галерея</a></li>
+                <li><a href="#calculator">Калькулятор</a></li>
+                <li><a href="#contact">Контакты</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Герой-секция -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Создаем цифровое будущее вместе</h1>
+                <p class="hero-text">Инновационный, функциональный и стильный веб-сайт с современным дизайном и интерактивными элементами.</p>
+                <div class="hero-buttons">
+                    <a href="#features" class="btn btn-primary">Узнать больше</a>
+                    <a href="#calculator" class="btn btn-secondary">Попробовать сейчас</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="floating-shapes">
+                    <div class="shape shape1"></div>
+                    <div class="shape shape2"></div>
+                    <div class="shape shape3"></div>
+                </div>
+                <div class="dashboard-preview">
+                    <div class="dashboard-header">
+                        <div class="dashboard-dots">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                        </div>
+                    </div>
+                    <div class="dashboard-content">
+                        <div class="dashboard-item">
+                            <div class="dashboard-bar" style="height: 70%; background-color: #4f46e5;"></div>
+                            <span>Проекты</span>
+                        </div>
+                        <div class="dashboard-item">
+                            <div class="dashboard-bar" style="height: 50%; background-color: #10b981;"></div>
+                            <span>Задачи</span>
+                        </div>
+                        <div class="dashboard-item">
+                            <div class="dashboard-bar" style="height: 90%; background-color: #f59e0b;"></div>
+                            <span>Успех</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция функций -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">Наши <span>функции</span></h2>
+            <p class="section-subtitle">Интерактивные возможности, которые делают этот сайт уникальным</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Быстрая работа</h3>
+                    <p>Оптимизированный код обеспечивает мгновенную загрузку и плавную анимацию.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Адаптивный дизайн</h3>
+                    <p>Сайт идеально отображается на всех устройствах: от смартфонов до десктопов.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Темная тема</h3>
+                    <p>Переключайтесь между светлой и темной темой для комфортного просмотра.</p>
+                    <button class="theme-toggle" id="themeToggle">
+                        <i class="fas fa-moon"></i> Сменить тему
+                    </button>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Аналитика</h3>
+                    <p>Встроенные графики и диаграммы для визуализации данных в реальном времени.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция галереи -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <h2 class="section-title">Интерактивная <span>галерея</span></h2>
+            <p class="section-subtitle">Нажмите на изображения, чтобы увидеть их в увеличенном виде</p>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1558655146-364adaf1fcc9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Дизайн интерьера">
+                    <div class="gallery-overlay">
+                        <h3>Современный дизайн</h3>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1545235617-9465d2a55698?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Цифровое искусство">
+                    <div class="gallery-overlay">
+                        <h3>Цифровое искусство</h3>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Технологии">
+                    <div class="gallery-overlay">
+                        <h3>Инновации</h3>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Модальное окно для галереи -->
+            <div class="modal" id="imageModal">
+                <span class="close-modal">&times;</span>
+                <img class="modal-content" id="modalImage">
+                <div id="modalCaption"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция калькулятора -->
+    <section class="calculator-section" id="calculator">
+        <div class="container">
+            <h2 class="section-title">Интерактивный <span>калькулятор</span></h2>
+            <p class="section-subtitle">Произведите расчеты прямо на сайте</p>
+            
+            <div class="calculator">
+                <div class="calculator-display">
+                    <input type="text" id="display" readonly>
+                </div>
+                <div class="calculator-buttons">
+                    <button class="calc-btn operator" data-value="C">C</button>
+                    <button class="calc-btn operator" data-value="CE">CE</button>
+                    <button class="calc-btn operator" data-value="%">%</button>
+                    <button class="calc-btn operator" data-value="/">/</button>
+                    
+                    <button class="calc-btn" data-value="7">7</button>
+                    <button class="calc-btn" data-value="8">8</button>
+                    <button class="calc-btn" data-value="9">9</button>
+                    <button class="calc-btn operator" data-value="*">×</button>
+                    
+                    <button class="calc-btn" data-value="4">4</button>
+                    <button class="calc-btn" data-value="5">5</button>
+                    <button class="calc-btn" data-value="6">6</button>
+                    <button class="calc-btn operator" data-value="-">-</button>
+                    
+                    <button class="calc-btn" data-value="1">1</button>
+                    <button class="calc-btn" data-value="2">2</button>
+                    <button class="calc-btn" data-value="3">3</button>
+                    <button class="calc-btn operator" data-value="+">+</button>
+                    
+                    <button class="calc-btn zero" data-value="0">0</button>
+                    <button class="calc-btn" data-value=".">.</button>
+                    <button class="calc-btn equals" data-value="=">=</button>
+                </div>
+                <div class="calculator-history">
+                    <h4>История вычислений:</h4>
+                    <ul id="historyList"></ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция контактов -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Свяжитесь <span>с нами</span></h2>
+            <p class="section-subtitle">Оставьте сообщение, и мы ответим в ближайшее время</p>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>Адрес</h3>
+                            <p>ул. Цифровая, 42, Москва</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h3>Телефон</h3>
+                            <p>+7 (999) 123-45-67</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>Email</h3>
+                            <p>info@modernspace.ru</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <input type="text" id="name" placeholder="Ваше имя" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" placeholder="Ваш email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" rows="5" placeholder="Ваше сообщение" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Отправить сообщение</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="#" class="logo">Modern<span>Space</span></a>
+                    <p>Создаем цифровое будущее вместе. Функциональный и стильный веб-сайт на чистом HTML, CSS и JavaScript.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Быстрые ссылки</h3>
+                    <ul>
+                        <li><a href="#home">Главная</a></li>
+                        <li><a href="#features">Функции</a></li>
+                        <li><a href="#gallery">Галерея</a></li>
+                        <li><a href="#calculator">Калькулятор</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h3>Социальные сети</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-vk"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 ModernSpace. Все права защищены.</p>
+                <p>Сайт создан с использованием только HTML, CSS и JavaScript</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Кнопка "Наверх" -->
+    <button class="scroll-to-top" id="scrollToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
