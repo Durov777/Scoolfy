@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scoolfy | Образовательная платформа</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Навигация -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <span>Scoolfy</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#home"><i class="fas fa-home"></i> Главная</a></li>
+                <li><a href="#features"><i class="fas fa-star"></i> Преимущества</a></li>
+                <li><a href="#courses"><i class="fas fa-book-open"></i> Курсы</a></li>
+                <li><a href="#calculator"><i class="fas fa-calculator"></i> Калькулятор</a></li>
+                <li><a href="#contact"><i class="fas fa-envelope"></i> Контакты</a></li>
+                <li><a href="#" class="nav-btn">Войти</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Герой-секция -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-rocket"></i>
+                    <span>Инновационная платформа</span>
+                </div>
+                <h1 class="hero-title">Образование <span class="highlight">будущего</span> уже здесь</h1>
+                <p class="hero-text">Scoolfy - это современная образовательная платформа, которая сочетает в себе передовые технологии, интерактивное обучение и персонализированный подход к каждому студенту.</p>
+                <div class="hero-buttons">
+                    <a href="#courses" class="btn btn-primary">
+                        <i class="fas fa-play-circle"></i> Начать обучение
+                    </a>
+                    <a href="#features" class="btn btn-secondary">
+                        <i class="fas fa-info-circle"></i> Узнать больше
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number">10K+</div>
+                        <div class="stat-label">Студентов</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">150+</div>
+                        <div class="stat-label">Курсов</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">98%</div>
+                        <div class="stat-label">Успеваемость</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="learning-illustration">
+                    <div class="floating-element el1">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <div class="floating-element el2">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="floating-element el3">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <div class="main-illustration">
+                        <div class="illustration-card">
+                            <div class="card-header">
+                                <h4>Текущий прогресс</h4>
+                                <div class="progress-circle" data-progress="85">
+                                    <span>85%</span>
+                                </div>
+                            </div>
+                            <div class="card-course">
+                                <h5>Веб-разработка</h5>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 75%"></div>
+                                </div>
+                            </div>
+                            <div class="card-course">
+                                <h5>Дизайн интерфейсов</h5>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 90%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция преимуществ -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Почему выбирают <span class="highlight">Scoolfy</span></h2>
+                <p class="section-subtitle">Инновационный подход к образованию, который меняет правила игры</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Адаптивное обучение</h3>
+                    <p>Персонализированная программа подстраивается под ваш темп обучения и уровень знаний.</p>
+                    <a href="#" class="feature-link">Узнать больше →</a>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Сообщество</h3>
+                    <p>Общайтесь с преподавателями и студентами, работайте над проектами в команде.</p>
+                    <a href="#" class="feature-link">Присоединиться →</a>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h3>Геймификация</h3>
+                    <p>Система достижений, уровней и наград делает обучение увлекательным.</p>
+                    <button class="theme-toggle" id="themeToggle">
+                        <i class="fas fa-moon"></i> Темная тема
+                    </button>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>Карьерный рост</h3>
+                    <p>Помогаем с трудоустройством и развитием карьеры после завершения курсов.</p>
+                    <a href="#" class="feature-link">Вакансии →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция курсов -->
+    <section class="courses" id="courses">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Популярные <span class="highlight">курсы</span></h2>
+                <p class="section-subtitle">Выберите направление и начните свой путь к успеху</p>
+            </div>
+            
+            <div class="courses-grid">
+                <div class="course-card">
+                    <div class="course-badge">Новый</div>
+                    <div class="course-image" style="background: linear-gradient(135deg, #10b981, #34d399);">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="course-content">
+                        <h3>Веб-разработка</h3>
+                        <p>Полный курс по созданию современных веб-приложений с нуля до профессионала.</p>
+                        <div class="course-meta">
+                            <span><i class="fas fa-clock"></i> 120 часов</span>
+                            <span><i class="fas fa-signal"></i> Начинающий</span>
+                        </div>
+                        <div class="course-footer">
+                            <div class="course-price">12 900 ₽</div>
+                            <button class="btn-course">Подробнее</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-badge">Бестселлер</div>
+                    <div class="course-image" style="background: linear-gradient(135deg, #059669, #10b981);">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <div class="course-content">
+                        <h3>UI/UX Дизайн</h3>
+                        <p>Создание удобных и красивых интерфейсов для веб и мобильных приложений.</p>
+                        <div class="course-meta">
+                            <span><i class="fas fa-clock"></i> 90 часов</span>
+                            <span><i class="fas fa-signal"></i> Средний</span>
+                        </div>
+                        <div class="course-footer">
+                            <div class="course-price">14 500 ₽</div>
+                            <button class="btn-course">Подробнее</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-image" style="background: linear-gradient(135deg, #047857, #059669);">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <div class="course-content">
+                        <h3>Аналитика данных</h3>
+                        <p>Анализ и визуализация данных с использованием современных инструментов.</p>
+                        <div class="course-meta">
+                            <span><i class="fas fa-clock"></i> 150 часов</span>
+                            <span><i class="fas fa-signal"></i> Продвинутый</span>
+                        </div>
+                        <div class="course-footer">
+                            <div class="course-price">18 900 ₽</div>
+                            <button class="btn-course">Подробнее</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция калькулятора -->
+    <section class="calculator-section" id="calculator">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Учебный <span class="highlight">калькулятор</span></h2>
+                <p class="section-subtitle">Рассчитайте стоимость и продолжительность обучения</p>
+            </div>
+            
+            <div class="calculator-wrapper">
+                <div class="calculator-info">
+                    <h3>Планируйте обучение</h3>
+                    <p>Используйте калькулятор для расчета стоимости курсов, планирования времени обучения и сравнения разных программ.</p>
+                    <div class="calc-tips">
+                        <div class="tip">
+                            <i class="fas fa-lightbulb"></i>
+                            <p>Среднее время на курс: 2-3 месяца</p>
+                        </div>
+                        <div class="tip">
+                            <i class="fas fa-percentage"></i>
+                            <p>Скидка 15% при оплате за 3 курса</p>
+                        </div>
+                        <div class="tip">
+                            <i class="fas fa-calendar-alt"></i>
+                            <p>Гибкий график обучения</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="calculator">
+                    <div class="calculator-display">
+                        <input type="text" id="display" readonly>
+                        <div class="calc-result" id="calcResult">0</div>
+                    </div>
+                    <div class="calculator-buttons">
+                        <button class="calc-btn operator" data-value="C">C</button>
+                        <button class="calc-btn operator" data-value="CE">CE</button>
+                        <button class="calc-btn operator" data-value="%">%</button>
+                        <button class="calc-btn operator" data-value="/">/</button>
+                        
+                        <button class="calc-btn" data-value="7">7</button>
+                        <button class="calc-btn" data-value="8">8</button>
+                        <button class="calc-btn" data-value="9">9</button>
+                        <button class="calc-btn operator" data-value="*">×</button>
+                        
+                        <button class="calc-btn" data-value="4">4</button>
+                        <button class="calc-btn" data-value="5">5</button>
+                        <button class="calc-btn" data-value="6">6</button>
+                        <button class="calc-btn operator" data-value="-">-</button>
+                        
+                        <button class="calc-btn" data-value="1">1</button>
+                        <button class="calc-btn" data-value="2">2</button>
+                        <button class="calc-btn" data-value="3">3</button>
+                        <button class="calc-btn operator" data-value="+">+</button>
+                        
+                        <button class="calc-btn zero" data-value="0">0</button>
+                        <button class="calc-btn" data-value=".">.</button>
+                        <button class="calc-btn equals" data-value="=">=</button>
+                    </div>
+                    <div class="calculator-history">
+                        <h4><i class="fas fa-history"></i> История вычислений</h4>
+                        <ul id="historyList"></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция контактов -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Свяжитесь с <span class="highlight">нами</span></h2>
+                <p class="section-subtitle">Остались вопросы? Мы с радостью на них ответим!</p>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h3>Адрес</h3>
+                            <p>ул. Образовательная, 15, Москва</p>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h3>Телефон</h3>
+                            <p>+7 (800) 123-45-67</p>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h3>Email</h3>
+                            <p>hello@scoolfy.ru</p>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div>
+                            <h3>Часы работы</h3>
+                            <p>Пн-Пт: 9:00-20:00<br>Сб-Вс: 10:00-18:00</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <form class="contact-form" id="contactForm">
+                    <h3>Отправить сообщение</h3>
+                    <div class="form-group">
+                        <input type="text" id="name" placeholder="Ваше имя" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" placeholder="Ваш email" required>
+                    </div>
+                    <div class="form-group">
+                        <select id="subject">
+                            <option value="">Выберите тему</option>
+                            <option value="course">Вопрос о курсе</option>
+                            <option value="payment">Оплата</option>
+                            <option value="technical">Техническая поддержка</option>
+                            <option value="other">Другое</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" rows="5" placeholder="Ваше сообщение" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i> Отправить сообщение
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <div class="logo-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <span>Scoolfy</span>
+                    </a>
+                    <p>Современная образовательная платформа для тех, кто стремится к знаниям и профессиональному росту.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-vk"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Курсы</h3>
+                    <ul>
+                        <li><a href="#">Веб-разработка</a></li>
+                        <li><a href="#">Дизайн</a></li>
+                        <li><a href="#">Аналитика данных</a></li>
+                        <li><a href="#">Маркетинг</a></li>
+                        <li><a href="#">Все курсы →</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>О нас</h3>
+                    <ul>
+                        <li><a href="#">Команда</a></li>
+                        <li><a href="#">Вакансии</a></li>
+                        <li><a href="#">Блог</a></li>
+                        <li><a href="#">Отзывы</a></li>
+                        <li><a href="#">Партнеры</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h3>Новости и акции</h3>
+                    <p>Подпишитесь на рассылку, чтобы первыми узнавать о новых курсах и акциях.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Ваш email">
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Scoolfy. Все права защищены.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Политика конфиденциальности</a>
+                    <a href="#">Условия использования</a>
+                    <a href="#">Карта сайта</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Кнопка "Наверх" -->
+    <button class="scroll-to-top" id="scrollToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
