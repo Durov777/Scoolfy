@@ -49,7 +49,7 @@
             padding: 0 20px;
         }
 
-        /* Preloader */
+        /* Preloader - УПРОЩЕННЫЙ ВАРИАНТ */
         .preloader {
             position: fixed;
             top: 0;
@@ -195,7 +195,6 @@
             font-weight: 700;
             margin-bottom: 1rem;
             line-height: 1.2;
-            animation: fadeInUp 1s ease;
         }
 
         .gradient-text {
@@ -208,14 +207,12 @@
             font-size: 1.2rem;
             color: var(--gray-color);
             margin-bottom: 2rem;
-            animation: fadeInUp 1s ease 0.2s both;
         }
 
         .hero-buttons {
             display: flex;
             gap: 1rem;
             flex-wrap: wrap;
-            animation: fadeInUp 1s ease 0.4s both;
         }
 
         .btn-primary, .btn-secondary {
@@ -303,9 +300,6 @@
             font-size: 2.5rem;
             text-align: center;
             margin-bottom: 1rem;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 0.8s ease forwards;
         }
 
         .section-subtitle {
@@ -315,9 +309,6 @@
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 0.8s ease 0.2s forwards;
         }
 
         /* Features */
@@ -335,9 +326,6 @@
             box-shadow: var(--shadow);
             transition: var(--transition);
             text-align: center;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 0.8s ease forwards;
         }
 
         .dark-mode .feature-card {
@@ -383,17 +371,6 @@
             transition: var(--transition);
             cursor: pointer;
             height: 250px;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 0.8s ease forwards;
-        }
-
-        .gallery-item:nth-child(2) {
-            animation-delay: 0.2s;
-        }
-
-        .gallery-item:nth-child(3) {
-            animation-delay: 0.4s;
         }
 
         .gallery-item:hover {
@@ -443,17 +420,6 @@
 
         .stat {
             text-align: center;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 0.8s ease forwards;
-        }
-
-        .stat:nth-child(2) {
-            animation-delay: 0.2s;
-        }
-
-        .stat:nth-child(3) {
-            animation-delay: 0.4s;
         }
 
         .stat h3 {
@@ -482,17 +448,6 @@
             display: flex;
             align-items: center;
             gap: 1rem;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 0.8s ease forwards;
-        }
-
-        .info-item:nth-child(2) {
-            animation-delay: 0.2s;
-        }
-
-        .info-item:nth-child(3) {
-            animation-delay: 0.4s;
         }
 
         .info-item i {
@@ -511,9 +466,6 @@
             display: flex;
             flex-direction: column;
             gap: 1.5rem;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 0.8s ease 0.6s forwards;
         }
 
         .contact-form input,
@@ -643,21 +595,12 @@
             }
         }
 
-        @keyframes fadeInUp {
+        @keyframes fadeIn {
             from {
                 opacity: 0;
-                transform: translateY(30px);
             }
             to {
                 opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes ripple {
-            to {
-                transform: scale(4);
-                opacity: 0;
             }
         }
 
@@ -754,18 +697,14 @@
                 padding: 1rem;
             }
         }
+
+        /* Убедимся что контент виден */
+        .content {
+            animation: fadeIn 1s ease;
+        }
     </style>
 </head>
 <body>
-    <!-- Preloader -->
-    <div class="preloader" id="preloader">
-        <div class="loader">
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-        </div>
-    </div>
-
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
@@ -890,15 +829,15 @@
                 
                 <div class="stats">
                     <div class="stat">
-                        <h3 data-count="150">0</h3>
+                        <h3 data-count="150">150</h3>
                         <p>Проектов</p>
                     </div>
                     <div class="stat">
-                        <h3 data-count="50">0</h3>
+                        <h3 data-count="50">50</h3>
                         <p>Клиентов</p>
                     </div>
                     <div class="stat">
-                        <h3 data-count="3">0</h3>
+                        <h3 data-count="3">3</h3>
                         <p>Года опыта</p>
                     </div>
                 </div>
@@ -973,218 +912,233 @@
     </button>
 
     <script>
-        // Preloader
-        window.addEventListener('load', () => {
-            const preloader = document.getElementById('preloader');
-            setTimeout(() => {
-                preloader.classList.add('hidden');
-            }, 1000);
+        // Убираем прелоадер сразу - если будет нужен, можно добавить позже
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Страница загружена!');
             
-            // Активируем анимации после загрузки
-            setTimeout(() => {
-                document.querySelectorAll('.section-title, .section-subtitle, .feature-card, .gallery-item, .stat, .info-item, .contact-form').forEach(el => {
-                    el.style.animationPlayState = 'running';
+            // Mobile Menu Toggle
+            const menuToggle = document.getElementById('menuToggle');
+            const navLinks = document.getElementById('navLinks');
+
+            if (menuToggle && navLinks) {
+                menuToggle.addEventListener('click', () => {
+                    navLinks.classList.toggle('active');
+                    menuToggle.innerHTML = navLinks.classList.contains('active') 
+                        ? '<i class="fas fa-times"></i>' 
+                        : '<i class="fas fa-bars"></i>';
                 });
-            }, 500);
-        });
 
-        // Mobile Menu Toggle
-        const menuToggle = document.getElementById('menuToggle');
-        const navLinks = document.getElementById('navLinks');
-
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            menuToggle.innerHTML = navLinks.classList.contains('active') 
-                ? '<i class="fas fa-times"></i>' 
-                : '<i class="fas fa-bars"></i>';
-        });
-
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-            });
-        });
-
-        // Dark Mode Toggle
-        const themeToggle = document.getElementById('themeToggle');
-        const themeIcon = themeToggle.querySelector('i');
-
-        themeToggle.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-            
-            if (document.body.classList.contains('dark-mode')) {
-                themeIcon.classList.remove('fa-moon');
-                themeIcon.classList.add('fa-sun');
-                localStorage.setItem('theme', 'dark');
-            } else {
-                themeIcon.classList.remove('fa-sun');
-                themeIcon.classList.add('fa-moon');
-                localStorage.setItem('theme', 'light');
-            }
-        });
-
-        // Check for saved theme preference
-        if (localStorage.getItem('theme') === 'dark') {
-            document.body.classList.add('dark-mode');
-            themeIcon.classList.remove('fa-moon');
-            themeIcon.classList.add('fa-sun');
-        }
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
+                // Close mobile menu when clicking on a link
+                document.querySelectorAll('.nav-links a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        navLinks.classList.remove('active');
+                        menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
                     });
+                });
+            }
+
+            // Dark Mode Toggle
+            const themeToggle = document.getElementById('themeToggle');
+            if (themeToggle) {
+                const themeIcon = themeToggle.querySelector('i');
+                
+                themeToggle.addEventListener('click', () => {
+                    document.body.classList.toggle('dark-mode');
+                    
+                    if (document.body.classList.contains('dark-mode')) {
+                        themeIcon.classList.remove('fa-moon');
+                        themeIcon.classList.add('fa-sun');
+                        localStorage.setItem('theme', 'dark');
+                    } else {
+                        themeIcon.classList.remove('fa-sun');
+                        themeIcon.classList.add('fa-moon');
+                        localStorage.setItem('theme', 'light');
+                    }
+                });
+
+                // Check for saved theme preference
+                if (localStorage.getItem('theme') === 'dark') {
+                    document.body.classList.add('dark-mode');
+                    if (themeIcon) {
+                        themeIcon.classList.remove('fa-moon');
+                        themeIcon.classList.add('fa-sun');
+                    }
                 }
-            });
-        });
+            }
 
-        // Animated counter for stats
-        const animateCounter = (element, target) => {
-            let current = 0;
-            const increment = target / 100;
-            const timer = setInterval(() => {
-                current += increment;
-                if (current >= target) {
-                    element.textContent = target;
-                    clearInterval(timer);
-                } else {
-                    element.textContent = Math.floor(current);
-                }
-            }, 20);
-        };
-
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.3,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    // Animate stats
-                    if (entry.target.classList.contains('stats')) {
-                        const stats = entry.target.querySelectorAll('.stat h3');
-                        stats.forEach(stat => {
-                            const target = parseInt(stat.getAttribute('data-count'));
-                            animateCounter(stat, target);
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
                         });
                     }
+                });
+            });
+
+            // Animated counter for stats - ТЕПЕРЬ ПРОСТО ПОКАЗЫВАЕМ ЦИФРЫ
+            const stats = document.querySelectorAll('.stat h3');
+            stats.forEach(stat => {
+                const target = parseInt(stat.getAttribute('data-count'));
+                stat.textContent = target;
+            });
+
+            // Back to Top Button
+            const backToTopButton = document.getElementById('backToTop');
+            
+            if (backToTopButton) {
+                window.addEventListener('scroll', () => {
+                    if (window.pageYOffset > 300) {
+                        backToTopButton.classList.add('visible');
+                    } else {
+                        backToTopButton.classList.remove('visible');
+                    }
                     
-                    // Add animation class
-                    entry.target.classList.add('animated');
+                    // Параллакс эффект
+                    const scrolled = window.pageYOffset;
+                    const parallaxElements = document.querySelectorAll('.floating-shape');
+                    
+                    parallaxElements.forEach((element, index) => {
+                        const speed = 0.5 + (index * 0.1);
+                        const yPos = -(scrolled * speed);
+                        element.style.transform = `translateY(calc(${yPos}px - 50%))`;
+                    });
+                });
+
+                backToTopButton.addEventListener('click', () => {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+
+            // Contact Form Submission
+            const contactForm = document.getElementById('contactForm');
+            
+            if (contactForm) {
+                contactForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    
+                    // Get form data
+                    const name = document.getElementById('nameInput').value;
+                    const email = document.getElementById('emailInput').value;
+                    const message = document.getElementById('messageInput').value;
+                    
+                    // Simple validation
+                    if (!name || !email || !message) {
+                        alert('Пожалуйста, заполните все поля!');
+                        return;
+                    }
+                    
+                    if (!email.includes('@')) {
+                        alert('Пожалуйста, введите корректный email!');
+                        return;
+                    }
+                    
+                    // Here you would normally send the data to a server
+                    console.log('Form data:', { name, email, message });
+                    
+                    // Show success message with animation
+                    const submitBtn = contactForm.querySelector('.btn-primary');
+                    const originalText = submitBtn.textContent;
+                    
+                    submitBtn.innerHTML = '<i class="fas fa-check"></i> Отправлено!';
+                    submitBtn.style.background = 'linear-gradient(135deg, #10b981 0%, #34d399 100%)';
+                    
+                    setTimeout(() => {
+                        submitBtn.textContent = originalText;
+                        submitBtn.style.background = '';
+                    }, 2000);
+                    
+                    // Reset form
+                    contactForm.reset();
+                });
+            }
+
+            // Gallery Item Click Effect
+            document.querySelectorAll('.gallery-item').forEach(item => {
+                item.addEventListener('click', (e) => {
+                    // Add ripple effect
+                    const rect = item.getBoundingClientRect();
+                    const size = Math.max(rect.width, rect.height);
+                    const x = e.clientX - rect.left - size / 2;
+                    const y = e.clientY - rect.top - size / 2;
+                    
+                    const ripple = document.createElement('span');
+                    ripple.style.cssText = `
+                        position: absolute;
+                        border-radius: 50%;
+                        background: rgba(255, 255, 255, 0.7);
+                        transform: scale(0);
+                        animation: ripple 0.6s linear;
+                        width: ${size}px;
+                        height: ${size}px;
+                        top: ${y}px;
+                        left: ${x}px;
+                        pointer-events: none;
+                    `;
+                    
+                    item.style.position = 'relative';
+                    item.style.overflow = 'hidden';
+                    item.appendChild(ripple);
+                    
+                    // Remove ripple after animation
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 600);
+                });
+            });
+
+            // Add CSS for ripple animation
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes ripple {
+                    to {
+                        transform: scale(4);
+                        opacity: 0;
+                    }
                 }
-            });
-        }, observerOptions);
+            `;
+            document.head.appendChild(style);
 
-        // Observe elements
-        document.querySelectorAll('.stats, .feature-card, .gallery-item').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Back to Top Button
-        const backToTopButton = document.getElementById('backToTop');
-
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                backToTopButton.classList.add('visible');
-            } else {
-                backToTopButton.classList.remove('visible');
-            }
-            
-            // Параллакс эффект
-            const scrolled = window.pageYOffset;
-            const parallaxElements = document.querySelectorAll('.floating-shape');
-            
-            parallaxElements.forEach((element, index) => {
-                const speed = 0.5 + (index * 0.1);
-                const yPos = -(scrolled * speed);
-                element.style.transform = `translateY(${yPos}px)`;
-            });
-        });
-
-        backToTopButton.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-
-        // Contact Form Submission
-        const contactForm = document.getElementById('contactForm');
-
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            // Get form data
-            const name = document.getElementById('nameInput').value;
-            const email = document.getElementById('emailInput').value;
-            const message = document.getElementById('messageInput').value;
-            
-            // Simple validation
-            if (!name || !email || !message) {
-                alert('Пожалуйста, заполните все поля!');
-                return;
-            }
-            
-            if (!email.includes('@')) {
-                alert('Пожалуйста, введите корректный email!');
-                return;
-            }
-            
-            // Here you would normally send the data to a server
-            console.log('Form data:', { name, email, message });
-            
-            // Show success message with animation
-            const submitBtn = contactForm.querySelector('.btn-primary');
-            const originalText = submitBtn.textContent;
-            
-            submitBtn.innerHTML = '<i class="fas fa-check"></i> Отправлено!';
-            submitBtn.style.background = 'linear-gradient(135deg, #10b981 0%, #34d399 100%)';
-            
-            setTimeout(() => {
-                submitBtn.textContent = originalText;
-                submitBtn.style.background = '';
-            }, 2000);
-            
-            // Reset form
-            contactForm.reset();
-        });
-
-        // Gallery Item Click Effect
-        document.querySelectorAll('.gallery-item').forEach(item => {
-            item.addEventListener('click', (e) => {
-                // Add ripple effect
-                const rect = item.getBoundingClientRect();
-                const size = Math.max(rect.width, rect.height);
-                const x = e.clientX - rect.left - size / 2;
-                const y = e.clientY - rect.top - size / 2;
+            // Добавляем анимацию при скролле
+            function checkScroll() {
+                const elements = document.querySelectorAll('.feature-card, .gallery-item, .section-title, .section-subtitle');
                 
-                const ripple = document.createElement('span');
-                ripple.style.cssText = `
-                    position: absolute;
-                    border-radius: 50%;
-                    background: rgba(255, 255, 255, 0.7);
-                    transform: scale(0);
-                    animation: ripple 0.6s linear;
-                    width: ${size}px;
-                    height: ${size}px;
-                    top: ${y}px;
-                    left: ${x}px;
-                    pointer-events: none;
-                `;
-                
-                item.style.position = 'relative';
-                item.style.overflow = 'hidden';
+                elements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (elementTop < windowHeight - 100) {
+                        element.style.opacity = '1';
+                        element.style.transform = 'translateY(0)';
+                    }
+                });
+            }
+            
+            // Устанавливаем начальные стили для анимации
+            document.querySelectorAll('.feature-card, .gallery-item, .section-title, .section-subtitle').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            });
+            
+            // Проверяем при загрузке и скролле
+            window.addEventListener('scroll', checkScroll);
+            window.addEventListener('load', checkScroll);
+            
+            // Проверяем сразу
+            setTimeout(checkScroll, 100);
+        });
+    </script>
+</body>
+</html>
