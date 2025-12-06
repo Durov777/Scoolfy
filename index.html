@@ -14,6 +14,11 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
         :root {
             --primary-color: #4361ee;
             --secondary-color: #3a0ca3;
@@ -87,6 +92,7 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            transition: var(--transition);
         }
 
         .logo i {
@@ -110,9 +116,14 @@
             font-weight: 500;
             transition: var(--transition);
             position: relative;
+            padding: 0.5rem 0;
         }
 
         .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-links a.active {
             color: var(--primary-color);
         }
 
@@ -127,7 +138,8 @@
             transition: var(--transition);
         }
 
-        .nav-links a:hover::after {
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
             width: 100%;
         }
 
@@ -194,6 +206,9 @@
             min-height: 100vh;
             display: flex;
             align-items: center;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease forwards;
         }
 
         .hero-content {
@@ -230,7 +245,14 @@
 
         .stat {
             text-align: center;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease forwards;
         }
+
+        .stat:nth-child(1) { animation-delay: 0.2s; }
+        .stat:nth-child(2) { animation-delay: 0.4s; }
+        .stat:nth-child(3) { animation-delay: 0.6s; }
 
         .stat-number {
             font-size: 2rem;
@@ -289,6 +311,8 @@
             font-size: 2.5rem;
             text-align: center;
             margin-bottom: 1rem;
+            opacity: 0;
+            transform: translateY(30px);
         }
 
         .section-subtitle {
@@ -298,6 +322,8 @@
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
+            opacity: 0;
+            transform: translateY(30px);
         }
 
         .features-grid {
@@ -314,6 +340,8 @@
             box-shadow: var(--shadow);
             transition: var(--transition);
             text-align: center;
+            opacity: 0;
+            transform: translateY(30px);
         }
 
         .dark-mode .feature-card {
@@ -357,6 +385,8 @@
             box-shadow: var(--shadow);
             transition: var(--transition);
             position: relative;
+            opacity: 0;
+            transform: translateY(30px);
         }
 
         .dark-mode .course-card {
@@ -449,6 +479,8 @@
             text-align: center;
             position: relative;
             z-index: 2;
+            opacity: 0;
+            transform: translateY(30px);
         }
 
         .step-number {
@@ -486,6 +518,8 @@
             text-align: center;
             box-shadow: var(--shadow);
             transition: var(--transition);
+            opacity: 0;
+            transform: translateY(30px);
         }
 
         .dark-mode .teacher-card {
@@ -583,6 +617,8 @@
             transition: var(--transition);
             position: relative;
             overflow: hidden;
+            opacity: 0;
+            transform: translateY(30px);
         }
 
         .dark-mode .pricing-card {
@@ -591,7 +627,7 @@
 
         .pricing-card.popular {
             border: 2px solid var(--primary-color);
-            transform: scale(1.05);
+            transform: scale(1.05) translateY(-10px);
         }
 
         .popular-badge {
@@ -724,6 +760,50 @@
             color: rgba(255, 255, 255, 0.5);
         }
 
+        /* Progress Bar для навигации */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: var(--gradient);
+            z-index: 1001;
+            transition: width 0.3s ease;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(67, 97, 238, 0.3);
+        }
+
         /* Animations */
         @keyframes float {
             0%, 100% {
@@ -743,6 +823,22 @@
                 opacity: 1;
                 transform: translateY(0);
             }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Классы для анимации при скролле */
+        .animate {
+            animation: fadeInUp 0.8s ease forwards;
         }
 
         /* Адаптивность */
@@ -781,7 +877,7 @@
             }
             
             .pricing-card.popular {
-                transform: scale(1);
+                transform: scale(1) translateY(0);
             }
         }
 
@@ -838,16 +934,19 @@
     </style>
 </head>
 <body>
+    <!-- Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
     <!-- Header -->
     <header class="header">
         <div class="container">
-            <a href="#" class="logo">
+            <a href="#home" class="logo">
                 <i class="fas fa-graduation-cap"></i>
                 <span>Scoolfy</span>
             </a>
             
             <nav class="nav-links" id="navLinks">
-                <a href="#home">Главная</a>
+                <a href="#home" class="active">Главная</a>
                 <a href="#courses">Курсы</a>
                 <a href="#features">Преимущества</a>
                 <a href="#teachers">Преподаватели</a>
@@ -1082,64 +1181,4 @@
                 
                 <div class="teacher-card">
                     <img src="https://i.pravatar.cc/150?img=5" alt="Преподаватель" class="teacher-avatar">
-                    <h3>Мария Иванова</h3>
-                    <p class="teacher-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        5.0
-                    </p>
-                    <p>Lead UI/UX Designer</p>
-                    <p>Работала в Google и Яндекс</p>
-                </div>
-                
-                <div class="teacher-card">
-                    <img src="https://i.pravatar.cc/150?img=8" alt="Преподаватель" class="teacher-avatar">
-                    <h3>Дмитрий Сидоров</h3>
-                    <p class="teacher-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        5.0
-                    </p>
-                    <p>Digital Marketing Expert</p>
-                    <p>Помог запустить 50+ стартапов</p>
-                </div>
-                
-                <div class="teacher-card">
-                    <img src="https://i.pravatar.cc/150?img=11" alt="Преподаватель" class="teacher-avatar">
-                    <h3>Ольга Козлова</h3>
-                    <p class="teacher-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                        4.8
-                    </p>
-                    <p>Бизнес-консультант</p>
-                    <p>Основатель 3 успешных компаний</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="testimonials">
-        <div class="container">
-            <h2 class="section-title">Отзывы <span class="gradient-text">студентов</span></h2>
-            <p class="section-subtitle">Что говорят наши выпускники</p>
-            
-            <div class="testimonials-slider">
-                <div class="testimonial active">
-                    <p class="testimonial-text">"Курс по веб-разработке изменил мою жизнь. Сейчас работаю в IT-компании и зарабатываю в 3 раза больше, чем на предыдущей работе."</p>
-                    <p class="testimonial-author">Иван Смирнов</p>
-                    <p class="testimonial-role">Веб-разработчик в EPAM</p>
-                </div>
-                
-                <div class="testimonial">
-                    <p class="testimonial-text">"Отличная платформа! Удобный интерфейс, качественные материалы и поддержка преподава
+                    <h3>Мария Иванова
