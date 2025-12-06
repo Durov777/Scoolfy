@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NeoSpace | Современный дизайн</title>
+    <title>Scoolfy - Онлайн уроки для всех</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -15,15 +15,21 @@
         }
 
         :root {
-            --primary-color: #6366f1;
-            --secondary-color: #8b5cf6;
-            --accent-color: #10b981;
-            --dark-color: #1f2937;
-            --light-color: #f9fafb;
-            --gray-color: #6b7280;
-            --gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            --primary-color: #4361ee;
+            --secondary-color: #3a0ca3;
+            --accent-color: #4cc9f0;
+            --success-color: #4ade80;
+            --warning-color: #f59e0b;
+            --danger-color: #ef4444;
+            --dark-color: #1e293b;
+            --light-color: #f8fafc;
+            --gray-color: #64748b;
+            --gradient: linear-gradient(135deg, #4361ee 0%, #3a0ca3 100%);
+            --gradient-light: linear-gradient(135deg, #4cc9f0 0%, #4361ee 100%);
             --shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 40px rgba(67, 97, 238, 0.15);
             --transition: all 0.3s ease;
+            --border-radius: 12px;
         }
 
         body {
@@ -36,9 +42,9 @@
         }
 
         body.dark-mode {
-            --dark-color: #f9fafb;
-            --light-color: #111827;
-            --gray-color: #9ca3af;
+            --dark-color: #f8fafc;
+            --light-color: #0f172a;
+            --gray-color: #94a3b8;
             background-color: var(--light-color);
             color: var(--dark-color);
         }
@@ -49,49 +55,8 @@
             padding: 0 20px;
         }
 
-        /* Preloader - УПРОЩЕННЫЙ ВАРИАНТ */
-        .preloader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--light-color);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            transition: opacity 0.5s, visibility 0.5s;
-        }
-
-        .preloader.hidden {
-            opacity: 0;
-            visibility: hidden;
-        }
-
-        .loader {
-            display: flex;
-            gap: 10px;
-        }
-
-        .circle {
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background: var(--gradient);
-            animation: bounce 0.6s infinite alternate;
-        }
-
-        .circle:nth-child(2) {
-            animation-delay: 0.2s;
-        }
-
-        .circle:nth-child(3) {
-            animation-delay: 0.4s;
-        }
-
-        /* Navigation */
-        .navbar {
+        /* Header и Navigation */
+        .header {
             position: fixed;
             top: 0;
             width: 100%;
@@ -103,11 +68,11 @@
             transition: var(--transition);
         }
 
-        .dark-mode .navbar {
-            background: rgba(17, 24, 39, 0.95);
+        .dark-mode .header {
+            background: rgba(15, 23, 42, 0.95);
         }
 
-        .navbar .container {
+        .header .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -119,6 +84,13 @@
             font-weight: 700;
             text-decoration: none;
             color: var(--dark-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo i {
+            color: var(--primary-color);
         }
 
         .logo span {
@@ -159,6 +131,12 @@
             width: 100%;
         }
 
+        .header-buttons {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
         .menu-toggle, .theme-toggle {
             background: none;
             border: none;
@@ -171,7 +149,41 @@
         }
 
         .menu-toggle:hover, .theme-toggle:hover {
-            background: rgba(99, 102, 241, 0.1);
+            background: rgba(67, 97, 238, 0.1);
+        }
+
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            display: inline-block;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: white;
+            box-shadow: var(--shadow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-color);
+            color: white;
         }
 
         /* Hero Section */
@@ -209,44 +221,23 @@
             margin-bottom: 2rem;
         }
 
-        .hero-buttons {
+        .hero-stats {
             display: flex;
-            gap: 1rem;
+            gap: 2rem;
+            margin-top: 2rem;
             flex-wrap: wrap;
         }
 
-        .btn-primary, .btn-secondary {
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition);
-            display: inline-block;
-            cursor: pointer;
-            border: none;
-            font-size: 1rem;
+        .stat {
+            text-align: center;
         }
 
-        .btn-primary {
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
             background: var(--gradient);
-            color: white;
-            box-shadow: var(--shadow);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(99, 102, 241, 0.3);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--primary-color);
-            border: 2px solid var(--primary-color);
-        }
-
-        .btn-secondary:hover {
-            background: var(--primary-color);
-            color: white;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .hero-visual {
@@ -254,20 +245,20 @@
             right: 0;
             top: 50%;
             transform: translateY(-50%);
-            width: 40%;
-            height: 400px;
+            width: 45%;
+            height: 500px;
             z-index: 1;
         }
 
-        .floating-shape {
+        .floating-element {
             position: absolute;
-            border-radius: 50%;
+            border-radius: 20px;
             background: var(--gradient);
-            opacity: 0.3;
+            opacity: 0.1;
             filter: blur(40px);
         }
 
-        .shape-1 {
+        .element-1 {
             width: 200px;
             height: 200px;
             top: 0;
@@ -275,25 +266,23 @@
             animation: float 6s ease-in-out infinite;
         }
 
-        .shape-2 {
+        .element-2 {
             width: 150px;
             height: 150px;
             bottom: 0;
             right: 100px;
+            background: var(--gradient-light);
             animation: float 8s ease-in-out infinite reverse;
         }
 
-        .shape-3 {
-            width: 100px;
-            height: 100px;
-            top: 50%;
-            right: 50px;
-            animation: float 10s ease-in-out infinite;
+        /* Features Section */
+        .features {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #f6f7ff 0%, #f0f2ff 100%);
         }
 
-        /* Sections */
-        section {
-            padding: 5rem 0;
+        .dark-mode .features {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
         }
 
         .section-title {
@@ -311,10 +300,9 @@
             margin-right: auto;
         }
 
-        /* Features */
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
         }
@@ -322,19 +310,19 @@
         .feature-card {
             background: white;
             padding: 2rem;
-            border-radius: 20px;
+            border-radius: var(--border-radius);
             box-shadow: var(--shadow);
             transition: var(--transition);
             text-align: center;
         }
 
         .dark-mode .feature-card {
-            background: #1f2937;
+            background: #1e293b;
         }
 
         .feature-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
         }
 
         .feature-icon {
@@ -350,158 +338,328 @@
             color: white;
         }
 
-        .feature-card h3 {
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
+        /* Courses Section */
+        .courses {
+            padding: 5rem 0;
         }
 
-        /* Gallery */
-        .gallery-grid {
+        .courses-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
         }
 
-        .gallery-item {
-            position: relative;
-            border-radius: 20px;
+        .course-card {
+            background: white;
+            border-radius: var(--border-radius);
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: var(--transition);
-            cursor: pointer;
-            height: 250px;
+            position: relative;
         }
 
-        .gallery-item:hover {
-            transform: scale(1.05);
+        .dark-mode .course-card {
+            background: #1e293b;
         }
 
-        .gallery-img {
-            height: 100%;
-            width: 100%;
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
         }
 
-        .gallery-info {
+        .course-header {
+            height: 180px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .course-category {
             position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(255, 255, 255, 0.95);
+            top: 1rem;
+            left: 1rem;
+            background: var(--accent-color);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .course-content {
             padding: 1.5rem;
-            transform: translateY(100%);
-            transition: var(--transition);
         }
 
-        .dark-mode .gallery-info {
-            background: rgba(31, 41, 55, 0.95);
+        .course-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
         }
 
-        .gallery-item:hover .gallery-info {
-            transform: translateY(0);
+        .course-instructor {
+            color: var(--gray-color);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
         }
 
-        /* About */
-        .about {
-            background: linear-gradient(135deg, #f6f7ff 0%, #f0f2ff 100%);
-        }
-
-        .dark-mode .about {
-            background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
-        }
-
-        .stats {
+        .course-meta {
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .dark-mode .course-meta {
+            border-top-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .course-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .rating {
+            color: var(--warning-color);
+        }
+
+        /* How It Works */
+        .how-it-works {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%);
+        }
+
+        .dark-mode .how-it-works {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+        }
+
+        .steps {
+            display: flex;
+            justify-content: space-between;
             margin-top: 3rem;
+            position: relative;
             flex-wrap: wrap;
             gap: 2rem;
         }
 
-        .stat {
+        .step {
+            flex: 1;
+            min-width: 250px;
             text-align: center;
+            position: relative;
+            z-index: 2;
         }
 
-        .stat h3 {
-            font-size: 3rem;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 0.5rem;
-        }
-
-        /* Contact */
-        .contact-wrapper {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 4rem;
-            margin-top: 3rem;
-        }
-
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
-        .info-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .info-item i {
-            width: 50px;
-            height: 50px;
+        .step-number {
+            width: 60px;
+            height: 60px;
             background: var(--gradient);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.5rem;
+            font-weight: 700;
             color: white;
-            font-size: 1.2rem;
+            position: relative;
+            z-index: 2;
         }
 
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
+        /* Teachers Section */
+        .teachers {
+            padding: 5rem 0;
         }
 
-        .contact-form input,
-        .contact-form textarea {
-            padding: 1rem;
-            border: 2px solid #e5e7eb;
-            border-radius: 10px;
-            font-family: 'Inter', sans-serif;
-            font-size: 1rem;
+        .teachers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .teacher-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            text-align: center;
+            box-shadow: var(--shadow);
             transition: var(--transition);
-            background: transparent;
-            color: var(--dark-color);
         }
 
-        .dark-mode .contact-form input,
-        .dark-mode .contact-form textarea {
-            border-color: #374151;
+        .dark-mode .teacher-card {
+            background: #1e293b;
         }
 
-        .contact-form input:focus,
-        .contact-form textarea:focus {
-            outline: none;
-            border-color: var(--primary-color);
+        .teacher-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .teacher-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            border: 5px solid var(--primary-color);
+            padding: 3px;
+        }
+
+        .teacher-rating {
+            color: var(--warning-color);
+            margin: 0.5rem 0;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #f6f7ff 0%, #f0f2ff 100%);
+        }
+
+        .dark-mode .testimonials {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+        }
+
+        .testimonials-slider {
+            max-width: 800px;
+            margin: 3rem auto 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            text-align: center;
+            display: none;
+        }
+
+        .dark-mode .testimonial {
+            background: #1e293b;
+        }
+
+        .testimonial.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .testimonial-role {
+            color: var(--gray-color);
+            font-size: 0.9rem;
+        }
+
+        /* Pricing */
+        .pricing {
+            padding: 5rem 0;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dark-mode .pricing-card {
+            background: #1e293b;
+        }
+
+        .pricing-card.popular {
+            border: 2px solid var(--primary-color);
+            transform: scale(1.05);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: var(--gradient);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border-bottom-left-radius: 20px;
+        }
+
+        .pricing-price {
+            font-size: 3rem;
+            font-weight: 700;
+            margin: 1.5rem 0;
+            color: var(--primary-color);
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin: 2rem 0;
+            text-align: left;
+        }
+
+        .pricing-features li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .pricing-features li i {
+            color: var(--success-color);
+        }
+
+        /* CTA */
+        .cta {
+            padding: 5rem 0;
+            background: var(--gradient);
+            color: white;
+            text-align: center;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
         }
 
         /* Footer */
         .footer {
             background: var(--dark-color);
             color: white;
-            padding: 3rem 0;
-            text-align: center;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
         }
 
         .footer-logo {
             font-family: 'Poppins', sans-serif;
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: 700;
             margin-bottom: 1rem;
         }
@@ -512,11 +670,33 @@
             -webkit-text-fill-color: transparent;
         }
 
+        .footer-links h3 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
         .social-links {
             display: flex;
-            justify-content: center;
             gap: 1rem;
-            margin: 2rem 0;
+            margin-top: 1rem;
         }
 
         .social-links a {
@@ -538,42 +718,10 @@
         }
 
         .copyright {
-            margin-top: 2rem;
+            text-align: center;
             padding-top: 2rem;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        /* Back to Top */
-        .back-to-top {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            width: 50px;
-            height: 50px;
-            background: var(--gradient);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: var(--transition);
-            z-index: 100;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-        }
-
-        .back-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .back-to-top:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+            color: rgba(255, 255, 255, 0.5);
         }
 
         /* Animations */
@@ -586,21 +734,14 @@
             }
         }
 
-        @keyframes bounce {
-            from {
-                transform: translateY(0);
-            }
-            to {
-                transform: translateY(-15px);
-            }
-        }
-
         @keyframes fadeIn {
             from {
                 opacity: 0;
+                transform: translateY(20px);
             }
             to {
                 opacity: 1;
+                transform: translateY(0);
             }
         }
 
@@ -628,7 +769,7 @@
             }
             
             .dark-mode .nav-links {
-                background: #1f2937;
+                background: #1e293b;
             }
             
             .nav-links.active {
@@ -639,8 +780,8 @@
                 display: block;
             }
             
-            .theme-toggle {
-                display: block;
+            .pricing-card.popular {
+                transform: scale(1);
             }
         }
 
@@ -662,13 +803,14 @@
                 justify-content: center;
             }
             
-            .features-grid,
-            .gallery-grid {
-                grid-template-columns: 1fr;
+            .steps {
+                flex-direction: column;
+                align-items: center;
             }
             
-            .contact-wrapper {
-                grid-template-columns: 1fr;
+            .step {
+                width: 100%;
+                max-width: 300px;
             }
         }
 
@@ -681,65 +823,79 @@
                 font-size: 1.8rem;
             }
             
-            .btn-primary,
-            .btn-secondary {
-                padding: 0.8rem 1.5rem;
-                width: 100%;
-                text-align: center;
+            .btn {
+                padding: 0.8rem 1.2rem;
+                font-size: 0.9rem;
             }
             
-            .stats {
-                flex-direction: column;
+            .features-grid,
+            .courses-grid,
+            .teachers-grid,
+            .pricing-grid {
+                grid-template-columns: 1fr;
             }
-            
-            .nav-links {
-                gap: 1rem;
-                padding: 1rem;
-            }
-        }
-
-        /* Убедимся что контент виден */
-        .content {
-            animation: fadeIn 1s ease;
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
+    <!-- Header -->
+    <header class="header">
         <div class="container">
-            <a href="#" class="logo">Neo<span>Space</span></a>
-            <div class="nav-links" id="navLinks">
+            <a href="#" class="logo">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Scoolfy</span>
+            </a>
+            
+            <nav class="nav-links" id="navLinks">
                 <a href="#home">Главная</a>
-                <a href="#features">Возможности</a>
-                <a href="#gallery">Галерея</a>
-                <a href="#about">О нас</a>
-                <a href="#contact">Контакты</a>
+                <a href="#courses">Курсы</a>
+                <a href="#features">Преимущества</a>
+                <a href="#teachers">Преподаватели</a>
+                <a href="#pricing">Тарифы</a>
+            </nav>
+            
+            <div class="header-buttons">
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <a href="#pricing" class="btn btn-primary">Начать обучение</a>
             </div>
-            <button class="menu-toggle" id="menuToggle">
-                <i class="fas fa-bars"></i>
-            </button>
-            <button class="theme-toggle" id="themeToggle">
-                <i class="fas fa-moon"></i>
-            </button>
         </div>
-    </nav>
+    </header>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1 class="hero-title">Добро пожаловать в <span class="gradient-text">будущее</span></h1>
-                <p class="hero-subtitle">Современный дизайн, инновационные решения и крутые анимации</p>
+                <h1 class="hero-title">Онлайн-образование <span class="gradient-text">нового уровня</span></h1>
+                <p class="hero-subtitle">Интерактивные уроки, опытные преподаватели и гибкий график обучения. Получите востребованные навыки в удобном формате.</p>
                 <div class="hero-buttons">
-                    <a href="#features" class="btn-primary">Исследовать</a>
-                    <a href="#contact" class="btn-secondary">Связаться</a>
+                    <a href="#courses" class="btn btn-primary">Выбрать курс</a>
+                    <a href="#features" class="btn btn-secondary">Узнать больше</a>
+                </div>
+                
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number" data-count="250">250+</div>
+                        <p>Курсов</p>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number" data-count="50">50+</div>
+                        <p>Преподавателей</p>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number" data-count="10000">10000+</div>
+                        <p>Студентов</p>
+                    </div>
                 </div>
             </div>
+            
             <div class="hero-visual">
-                <div class="floating-shape shape-1"></div>
-                <div class="floating-shape shape-2"></div>
-                <div class="floating-shape shape-3"></div>
+                <div class="floating-element element-1"></div>
+                <div class="floating-element element-2"></div>
             </div>
         </div>
     </section>
@@ -747,398 +903,243 @@
     <!-- Features Section -->
     <section id="features" class="features">
         <div class="container">
-            <h2 class="section-title">Наши <span class="gradient-text">Возможности</span></h2>
-            <p class="section-subtitle">Инновационные решения для вашего бизнеса</p>
+            <h2 class="section-title">Почему выбирают <span class="gradient-text">Scoolfy</span></h2>
+            <p class="section-subtitle">Мы создали идеальную платформу для эффективного онлайн-обучения</p>
             
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-bolt"></i>
+                        <i class="fas fa-video"></i>
                     </div>
-                    <h3>Молниеносная скорость</h3>
-                    <p>Оптимизированная производительность для быстрой загрузки и плавной работы.</p>
+                    <h3>Живые уроки</h3>
+                    <p>Интерактивные занятия с возможностью задавать вопросы в реальном времени</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-palette"></i>
+                        <i class="fas fa-clock"></i>
                     </div>
-                    <h3>Современный дизайн</h3>
-                    <p>Чистый, минималистичный интерфейс с акцентом на пользовательский опыт.</p>
+                    <h3>Гибкий график</h3>
+                    <p>Занимайтесь в удобное время с доступом к записям всех уроков</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-mobile-alt"></i>
+                        <i class="fas fa-chart-line"></i>
                     </div>
-                    <h3>Адаптивность</h3>
-                    <p>Идеальное отображение на всех устройствах и размерах экранов.</p>
+                    <h3>Отслеживание прогресса</h3>
+                    <p>Личный кабинет с статистикой и рекомендациями по обучению</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-code"></i>
+                        <i class="fas fa-certificate"></i>
                     </div>
-                    <h3>Чистый код</h3>
-                    <p>Структурированный и документированный код для легкой поддержки.</p>
+                    <h3>Сертификаты</h3>
+                    <p>Официальные сертификаты по окончании каждого курса</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Gallery Section -->
-    <section id="gallery" class="gallery">
+    <!-- Courses Section -->
+    <section id="courses" class="courses">
         <div class="container">
-            <h2 class="section-title">Наша <span class="gradient-text">Галерея</span></h2>
-            <p class="section-subtitle">Вдохновляющие проекты и концепты</p>
+            <h2 class="section-title">Популярные <span class="gradient-text">курсы</span></h2>
+            <p class="section-subtitle">Выберите направление для профессионального роста</p>
             
-            <div class="gallery-grid">
-                <div class="gallery-item" data-category="design">
-                    <div class="gallery-img" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
-                    <div class="gallery-info">
-                        <h3>Космический дизайн</h3>
-                        <p>Футуристичные концепты</p>
+            <div class="courses-grid">
+                <!-- Курс 1 -->
+                <div class="course-card">
+                    <div class="course-header" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                        <div class="course-category">Программирование</div>
                     </div>
-                </div>
-                
-                <div class="gallery-item" data-category="tech">
-                    <div class="gallery-img" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"></div>
-                    <div class="gallery-info">
-                        <h3>Технологии будущего</h3>
-                        <p>Инновационные решения</p>
-                    </div>
-                </div>
-                
-                <div class="gallery-item" data-category="creative">
-                    <div class="gallery-img" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"></div>
-                    <div class="gallery-info">
-                        <h3>Креативные идеи</h3>
-                        <p>Нестандартный подход</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="about-content">
-                <h2 class="section-title">О <span class="gradient-text">нас</span></h2>
-                <p>Мы команда энтузиастов, создающая современные и стильные веб-решения. Наша цель - сочетать красивый дизайн с функциональностью.</p>
-                
-                <div class="stats">
-                    <div class="stat">
-                        <h3 data-count="150">150</h3>
-                        <p>Проектов</p>
-                    </div>
-                    <div class="stat">
-                        <h3 data-count="50">50</h3>
-                        <p>Клиентов</p>
-                    </div>
-                    <div class="stat">
-                        <h3 data-count="3">3</h3>
-                        <p>Года опыта</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">Связаться с <span class="gradient-text">нами</span></h2>
-            
-            <div class="contact-wrapper">
-                <div class="contact-info">
-                    <div class="info-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h3>Email</h3>
-                            <p>hello@neospace.com</p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-phone"></i>
-                        <div>
-                            <h3>Телефон</h3>
-                            <p>+7 (999) 123-45-67</p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h3>Адрес</h3>
-                            <p>Москва, ул. Цифровая, 42</p>
+                    <div class="course-content">
+                        <h3 class="course-title">Веб-разработка с нуля</h3>
+                        <p class="course-instructor">Алексей Петров</p>
+                        <p>Полный курс по созданию современных веб-приложений на HTML, CSS и JavaScript</p>
+                        <div class="course-meta">
+                            <div class="rating">
+                                <i class="fas fa-star"></i> 4.9
+                            </div>
+                            <div class="course-price">14 900 ₽</div>
                         </div>
                     </div>
                 </div>
                 
-                <form class="contact-form" id="contactForm">
-                    <input type="text" placeholder="Ваше имя" required id="nameInput">
-                    <input type="email" placeholder="Ваш Email" required id="emailInput">
-                    <textarea placeholder="Ваше сообщение" rows="5" required id="messageInput"></textarea>
-                    <button type="submit" class="btn-primary">Отправить</button>
-                </form>
+                <!-- Курс 2 -->
+                <div class="course-card">
+                    <div class="course-header" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                        <div class="course-category">Дизайн</div>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">UI/UX Дизайн</h3>
+                        <p class="course-instructor">Мария Иванова</p>
+                        <p>Создание интерфейсов и пользовательских сценариев для digital-продуктов</p>
+                        <div class="course-meta">
+                            <div class="rating">
+                                <i class="fas fa-star"></i> 4.8
+                            </div>
+                            <div class="course-price">12 900 ₽</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Курс 3 -->
+                <div class="course-card">
+                    <div class="course-header" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                        <div class="course-category">Маркетинг</div>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Digital-маркетинг</h3>
+                        <p class="course-instructor">Дмитрий Сидоров</p>
+                        <p>Продвижение бизнеса в интернете: SMM, контекстная реклама, SEO</p>
+                        <div class="course-meta">
+                            <div class="rating">
+                                <i class="fas fa-star"></i> 4.7
+                            </div>
+                            <div class="course-price">9 900 ₽</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Курс 4 -->
+                <div class="course-card">
+                    <div class="course-header" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+                        <div class="course-category">Бизнес</div>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Стартапы и инновации</h3>
+                        <p class="course-instructor">Ольга Козлова</p>
+                        <p>От идеи к успешному бизнесу: планирование, финансы, команда</p>
+                        <div class="course-meta">
+                            <div class="rating">
+                                <i class="fas fa-star"></i> 4.9
+                            </div>
+                            <div class="course-price">11 900 ₽</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
+    <!-- How It Works -->
+    <section class="how-it-works">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">Neo<span>Space</span></div>
-                <p>Современные решения для цифровой эпохи</p>
-                
-                <div class="social-links">
-                    <a href="#" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
-                    <a href="#" aria-label="VK"><i class="fab fa-vk"></i></a>
-                    <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <h2 class="section-title">Как проходит <span class="gradient-text">обучение</span></h2>
+            <p class="section-subtitle">4 простых шага к новым знаниям</p>
+            
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Выбор курса</h3>
+                    <p>Подберите программу обучения по вашим интересам и целям</p>
                 </div>
                 
-                <div class="copyright">
-                    <p>&copy; 2024 NeoSpace. Все права защищены.</p>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Регистрация</h3>
+                    <p>Создайте аккаунт и получите доступ к личному кабинету</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Обучение</h3>
+                    <p>Смотрите уроки, выполняете задания и общаетесь с преподавателем</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Сертификат</h3>
+                    <p>Получите сертификат по окончании курса</p>
                 </div>
             </div>
         </div>
-    </footer>
+    </section>
 
-    <!-- Back to Top Button -->
-    <button class="back-to-top" id="backToTop">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
-    <script>
-        // Убираем прелоадер сразу - если будет нужен, можно добавить позже
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('Страница загружена!');
+    <!-- Teachers Section -->
+    <section id="teachers" class="teachers">
+        <div class="container">
+            <h2 class="section-title">Наши <span class="gradient-text">преподаватели</span></h2>
+            <p class="section-subtitle">Опытные эксперты с практическими знаниями</p>
             
-            // Mobile Menu Toggle
-            const menuToggle = document.getElementById('menuToggle');
-            const navLinks = document.getElementById('navLinks');
-
-            if (menuToggle && navLinks) {
-                menuToggle.addEventListener('click', () => {
-                    navLinks.classList.toggle('active');
-                    menuToggle.innerHTML = navLinks.classList.contains('active') 
-                        ? '<i class="fas fa-times"></i>' 
-                        : '<i class="fas fa-bars"></i>';
-                });
-
-                // Close mobile menu when clicking on a link
-                document.querySelectorAll('.nav-links a').forEach(link => {
-                    link.addEventListener('click', () => {
-                        navLinks.classList.remove('active');
-                        menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-                    });
-                });
-            }
-
-            // Dark Mode Toggle
-            const themeToggle = document.getElementById('themeToggle');
-            if (themeToggle) {
-                const themeIcon = themeToggle.querySelector('i');
+            <div class="teachers-grid">
+                <div class="teacher-card">
+                    <img src="https://i.pravatar.cc/150?img=1" alt="Преподаватель" class="teacher-avatar">
+                    <h3>Алексей Петров</h3>
+                    <p class="teacher-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        4.9
+                    </p>
+                    <p>Senior Full-Stack Developer</p>
+                    <p>8 лет опыта в веб-разработке</p>
+                </div>
                 
-                themeToggle.addEventListener('click', () => {
-                    document.body.classList.toggle('dark-mode');
-                    
-                    if (document.body.classList.contains('dark-mode')) {
-                        themeIcon.classList.remove('fa-moon');
-                        themeIcon.classList.add('fa-sun');
-                        localStorage.setItem('theme', 'dark');
-                    } else {
-                        themeIcon.classList.remove('fa-sun');
-                        themeIcon.classList.add('fa-moon');
-                        localStorage.setItem('theme', 'light');
-                    }
-                });
-
-                // Check for saved theme preference
-                if (localStorage.getItem('theme') === 'dark') {
-                    document.body.classList.add('dark-mode');
-                    if (themeIcon) {
-                        themeIcon.classList.remove('fa-moon');
-                        themeIcon.classList.add('fa-sun');
-                    }
-                }
-            }
-
-            // Smooth scrolling for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    const targetId = this.getAttribute('href');
-                    if (targetId === '#') return;
-                    
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 80,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-
-            // Animated counter for stats - ТЕПЕРЬ ПРОСТО ПОКАЗЫВАЕМ ЦИФРЫ
-            const stats = document.querySelectorAll('.stat h3');
-            stats.forEach(stat => {
-                const target = parseInt(stat.getAttribute('data-count'));
-                stat.textContent = target;
-            });
-
-            // Back to Top Button
-            const backToTopButton = document.getElementById('backToTop');
-            
-            if (backToTopButton) {
-                window.addEventListener('scroll', () => {
-                    if (window.pageYOffset > 300) {
-                        backToTopButton.classList.add('visible');
-                    } else {
-                        backToTopButton.classList.remove('visible');
-                    }
-                    
-                    // Параллакс эффект
-                    const scrolled = window.pageYOffset;
-                    const parallaxElements = document.querySelectorAll('.floating-shape');
-                    
-                    parallaxElements.forEach((element, index) => {
-                        const speed = 0.5 + (index * 0.1);
-                        const yPos = -(scrolled * speed);
-                        element.style.transform = `translateY(calc(${yPos}px - 50%))`;
-                    });
-                });
-
-                backToTopButton.addEventListener('click', () => {
-                    window.scrollTo({
-                        top: 0,
-                        behavior: 'smooth'
-                    });
-                });
-            }
-
-            // Contact Form Submission
-            const contactForm = document.getElementById('contactForm');
-            
-            if (contactForm) {
-                contactForm.addEventListener('submit', (e) => {
-                    e.preventDefault();
-                    
-                    // Get form data
-                    const name = document.getElementById('nameInput').value;
-                    const email = document.getElementById('emailInput').value;
-                    const message = document.getElementById('messageInput').value;
-                    
-                    // Simple validation
-                    if (!name || !email || !message) {
-                        alert('Пожалуйста, заполните все поля!');
-                        return;
-                    }
-                    
-                    if (!email.includes('@')) {
-                        alert('Пожалуйста, введите корректный email!');
-                        return;
-                    }
-                    
-                    // Here you would normally send the data to a server
-                    console.log('Form data:', { name, email, message });
-                    
-                    // Show success message with animation
-                    const submitBtn = contactForm.querySelector('.btn-primary');
-                    const originalText = submitBtn.textContent;
-                    
-                    submitBtn.innerHTML = '<i class="fas fa-check"></i> Отправлено!';
-                    submitBtn.style.background = 'linear-gradient(135deg, #10b981 0%, #34d399 100%)';
-                    
-                    setTimeout(() => {
-                        submitBtn.textContent = originalText;
-                        submitBtn.style.background = '';
-                    }, 2000);
-                    
-                    // Reset form
-                    contactForm.reset();
-                });
-            }
-
-            // Gallery Item Click Effect
-            document.querySelectorAll('.gallery-item').forEach(item => {
-                item.addEventListener('click', (e) => {
-                    // Add ripple effect
-                    const rect = item.getBoundingClientRect();
-                    const size = Math.max(rect.width, rect.height);
-                    const x = e.clientX - rect.left - size / 2;
-                    const y = e.clientY - rect.top - size / 2;
-                    
-                    const ripple = document.createElement('span');
-                    ripple.style.cssText = `
-                        position: absolute;
-                        border-radius: 50%;
-                        background: rgba(255, 255, 255, 0.7);
-                        transform: scale(0);
-                        animation: ripple 0.6s linear;
-                        width: ${size}px;
-                        height: ${size}px;
-                        top: ${y}px;
-                        left: ${x}px;
-                        pointer-events: none;
-                    `;
-                    
-                    item.style.position = 'relative';
-                    item.style.overflow = 'hidden';
-                    item.appendChild(ripple);
-                    
-                    // Remove ripple after animation
-                    setTimeout(() => {
-                        ripple.remove();
-                    }, 600);
-                });
-            });
-
-            // Add CSS for ripple animation
-            const style = document.createElement('style');
-            style.textContent = `
-                @keyframes ripple {
-                    to {
-                        transform: scale(4);
-                        opacity: 0;
-                    }
-                }
-            `;
-            document.head.appendChild(style);
-
-            // Добавляем анимацию при скролле
-            function checkScroll() {
-                const elements = document.querySelectorAll('.feature-card, .gallery-item, .section-title, .section-subtitle');
+                <div class="teacher-card">
+                    <img src="https://i.pravatar.cc/150?img=5" alt="Преподаватель" class="teacher-avatar">
+                    <h3>Мария Иванова</h3>
+                    <p class="teacher-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        5.0
+                    </p>
+                    <p>Lead UI/UX Designer</p>
+                    <p>Работала в Google и Яндекс</p>
+                </div>
                 
-                elements.forEach(element => {
-                    const elementTop = element.getBoundingClientRect().top;
-                    const windowHeight = window.innerHeight;
-                    
-                    if (elementTop < windowHeight - 100) {
-                        element.style.opacity = '1';
-                        element.style.transform = 'translateY(0)';
-                    }
-                });
-            }
+                <div class="teacher-card">
+                    <img src="https://i.pravatar.cc/150?img=8" alt="Преподаватель" class="teacher-avatar">
+                    <h3>Дмитрий Сидоров</h3>
+                    <p class="teacher-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        5.0
+                    </p>
+                    <p>Digital Marketing Expert</p>
+                    <p>Помог запустить 50+ стартапов</p>
+                </div>
+                
+                <div class="teacher-card">
+                    <img src="https://i.pravatar.cc/150?img=11" alt="Преподаватель" class="teacher-avatar">
+                    <h3>Ольга Козлова</h3>
+                    <p class="teacher-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        4.8
+                    </p>
+                    <p>Бизнес-консультант</p>
+                    <p>Основатель 3 успешных компаний</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Отзывы <span class="gradient-text">студентов</span></h2>
+            <p class="section-subtitle">Что говорят наши выпускники</p>
             
-            // Устанавливаем начальные стили для анимации
-            document.querySelectorAll('.feature-card, .gallery-item, .section-title, .section-subtitle').forEach(el => {
-                el.style.opacity = '0';
-                el.style.transform = 'translateY(30px)';
-                el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-            });
-            
-            // Проверяем при загрузке и скролле
-            window.addEventListener('scroll', checkScroll);
-            window.addEventListener('load', checkScroll);
-            
-            // Проверяем сразу
-            setTimeout(checkScroll, 100);
-        });
-    </script>
-</body>
-</html>
+            <div class="testimonials-slider">
+                <div class="testimonial active">
+                    <p class="testimonial-text">"Курс по веб-разработке изменил мою жизнь. Сейчас работаю в IT-компании и зарабатываю в 3 раза больше, чем на предыдущей работе."</p>
+                    <p class="testimonial-author">Иван Смирнов</p>
+                    <p class="testimonial-role">Веб-разработчик в EPAM</p>
+                </div>
+                
+                <div class="testimonial">
+                    <p class="testimonial-text">"Отличная платформа! Удобный интерфейс, качественные материалы и поддержка преподавателей. Рекоменд
