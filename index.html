@@ -1,1 +1,444 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scoolfy - Онлайн уроки для всех</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Overlay для меню -->
+    <div class="menu-overlay" id="menuOverlay"></div>
 
+    <!-- Мобильное меню -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-header">
+            <a href="#home" class="mobile-logo">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Scoolfy</span>
+            </a>
+            <button class="close-menu" id="closeMenu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <nav class="mobile-nav-links">
+            <a href="#home" class="active">Главная</a>
+            <a href="#courses">Курсы</a>
+            <a href="#features">Преимущества</a>
+            <a href="#teachers">Преподаватели</a>
+            <a href="#pricing">Тарифы</a>
+        </nav>
+        
+        <div class="mobile-menu-footer">
+            <a href="#pricing" class="btn btn-primary" style="width: 100%;">Начать обучение</a>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <a href="#home" class="logo">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Scoolfy</span>
+            </a>
+            
+            <nav class="nav-links" id="navLinks">
+                <a href="#home" class="active">Главная</a>
+                <a href="#courses">Курсы</a>
+                <a href="#features">Преимущества</a>
+                <a href="#teachers">Преподаватели</a>
+                <a href="#pricing">Тарифы</a>
+            </nav>
+            
+            <div class="header-buttons">
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <a href="#pricing" class="btn btn-primary">Начать обучение</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Онлайн-образование <span class="gradient-text">нового уровня</span></h1>
+                <p class="hero-subtitle">Интерактивные уроки, опытные преподаватели и гибкий график обучения. Получите востребованные навыки в удобном формате.</p>
+                <div class="hero-buttons">
+                    <a href="#courses" class="btn btn-primary">Выбрать курс</a>
+                    <a href="#features" class="btn btn-secondary">Узнать больше</a>
+                </div>
+                
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number" data-count="250">250+</div>
+                        <p>Курсов</p>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number" data-count="50">50+</div>
+                        <p>Преподавателей</p>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number" data-count="10000">10000+</div>
+                        <p>Студентов</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-visual">
+                <div class="floating-element element-1"></div>
+                <div class="floating-element element-2"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Почему выбирают <span class="gradient-text">Scoolfy</span></h2>
+            <p class="section-subtitle">Мы создали идеальную платформу для эффективного онлайн-обучения</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>Живые уроки</h3>
+                    <p>Интерактивные занятия с возможностью задавать вопросы в реальном времени</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Гибкий график</h3>
+                    <p>Занимайтесь в удобное время с доступом к записям всех уроков</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Отслеживание прогресса</h3>
+                    <p>Личный кабинет с статистикой и рекомендациями по обучению</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3>Сертификаты</h3>
+                    <p>Официальные сертификаты по окончании каждого курса</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="courses" class="courses">
+        <div class="container">
+            <h2 class="section-title">Популярные <span class="gradient-text">курсы</span></h2>
+            <p class="section-subtitle">Выберите направление для профессионального роста</p>
+            
+            <div class="courses-grid">
+                <div class="course-card">
+                    <div class="course-header" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                        <div class="course-category">Программирование</div>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Веб-разработка с нуля</h3>
+                        <p class="course-instructor">Алексей Петров</p>
+                        <p>Полный курс по созданию современных веб-приложений на HTML, CSS и JavaScript</p>
+                        <div class="course-meta">
+                            <div class="rating">
+                                <i class="fas fa-star"></i> 4.9
+                            </div>
+                            <div class="course-price">14 900 ₽</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-header" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                        <div class="course-category">Дизайн</div>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">UI/UX Дизайн</h3>
+                        <p class="course-instructor">Мария Иванова</p>
+                        <p>Создание интерфейсов и пользовательских сценариев для digital-продуктов</p>
+                        <div class="course-meta">
+                            <div class="rating">
+                                <i class="fas fa-star"></i> 4.8
+                            </div>
+                            <div class="course-price">12 900 ₽</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-header" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                        <div class="course-category">Маркетинг</div>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Digital-маркетинг</h3>
+                        <p class="course-instructor">Дмитрий Сидоров</p>
+                        <p>Продвижение бизнеса в интернете: SMM, контекстная реклама, SEO</p>
+                        <div class="course-meta">
+                            <div class="rating">
+                                <i class="fas fa-star"></i> 4.7
+                            </div>
+                            <div class="course-price">9 900 ₽</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-header" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+                        <div class="course-category">Бизнес</div>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Стартапы и инновации</h3>
+                        <p class="course-instructor">Ольга Козлова</p>
+                        <p>От идеи к успешному бизнесу: планирование, финансы, команда</p>
+                        <div class="course-meta">
+                            <div class="rating">
+                                <i class="fas fa-star"></i> 4.9
+                            </div>
+                            <div class="course-price">11 900 ₽</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">Как проходит <span class="gradient-text">обучение</span></h2>
+            <p class="section-subtitle">4 простых шага к новым знаниям</p>
+            
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Выбор курса</h3>
+                    <p>Подберите программу обучения по вашим интересам и целям</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Регистрация</h3>
+                    <p>Создайте аккаунт и получите доступ к личному кабинету</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Обучение</h3>
+                    <p>Смотрите уроки, выполняете задания и общаетесь с преподавателем</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Сертификат</h3>
+                    <p>Получите сертификат по окончании курса</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Teachers Section -->
+    <section id="teachers" class="teachers">
+        <div class="container">
+            <h2 class="section-title">Наши <span class="gradient-text">преподаватели</span></h2>
+            <p class="section-subtitle">Опытные эксперты с практическими знаниями</p>
+            
+            <div class="teachers-grid">
+                <div class="teacher-card">
+                    <img src="https://i.pravatar.cc/150?img=1" alt="Преподаватель" class="teacher-avatar">
+                    <h3>Алексей Петров</h3>
+                    <p class="teacher-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        4.9
+                    </p>
+                    <p>Senior Full-Stack Developer</p>
+                    <p>8 лет опыта в веб-разработке</p>
+                </div>
+                
+                <div class="teacher-card">
+                    <img src="https://i.pravatar.cc/150?img=5" alt="Преподаватель" class="teacher-avatar">
+                    <h3>Мария Иванова</h3>
+                    <p class="teacher-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        5.0
+                    </p>
+                    <p>Lead UI/UX Designer</p>
+                    <p>Работала в Google и Яндекс</p>
+                </div>
+                
+                <div class="teacher-card">
+                    <img src="https://i.pravatar.cc/150?img=8" alt="Преподаватель" class="teacher-avatar">
+                    <h3>Дмитрий Сидоров</h3>
+                    <p class="teacher-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        5.0
+                    </p>
+                    <p>Digital Marketing Expert</p>
+                    <p>Помог запустить 50+ стартапов</p>
+                </div>
+                
+                <div class="teacher-card">
+                    <img src="https://i.pravatar.cc/150?img=11" alt="Преподаватель" class="teacher-avatar">
+                    <h3>Ольга Козлова</h3>
+                    <p class="teacher-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        4.8
+                    </p>
+                    <p>Бизнес-консультант</p>
+                    <p>Основатель 3 успешных компаний</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <h2 class="section-title">Наши <span class="gradient-text">тарифы</span></h2>
+            <p class="section-subtitle">Выберите подходящий вариант обучения</p>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Базовый</h3>
+                    <div class="pricing-price">1 900 ₽<span>/месяц</span></div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Доступ к 20 курсам</li>
+                        <li><i class="fas fa-check"></i> Записи уроков</li>
+                        <li><i class="fas fa-check"></i> Тесты и задания</li>
+                        <li><i class="fas fa-times"></i> Живые вебинары</li>
+                        <li><i class="fas fa-times"></i> Личный куратор</li>
+                    </ul>
+                    <a href="#" class="btn btn-secondary">Выбрать тариф</a>
+                </div>
+                
+                <div class="pricing-card popular">
+                    <div class="popular-badge">Популярный</div>
+                    <h3>Профессиональный</h3>
+                    <div class="pricing-price">3 900 ₽<span>/месяц</span></div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Доступ ко всем курсам</li>
+                        <li><i class="fas fa-check"></i> Записи уроков</li>
+                        <li><i class="fas fa-check"></i> Тесты и задания</li>
+                        <li><i class="fas fa-check"></i> Живые вебинары</li>
+                        <li><i class="fas fa-check"></i> Личный куратор</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary">Выбрать тариф</a>
+                </div>
+                
+                <div class="pricing-card">
+                    <h3>Премиум</h3>
+                    <div class="pricing-price">7 900 ₽<span>/месяц</span></div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Доступ ко всем курсам</li>
+                        <li><i class="fas fa-check"></i> Записи уроков</li>
+                        <li><i class="fas fa-check"></i> Тесты и задания</li>
+                        <li><i class="fas fa-check"></i> Живые вебинары</li>
+                        <li><i class="fas fa-check"></i> Личный куратор + ментор</li>
+                    </ul>
+                    <a href="#" class="btn btn-secondary">Выбрать тариф</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2 class="cta-title">Начните обучение уже сегодня!</h2>
+            <p>Присоединяйтесь к 10000+ студентов, которые уже получили новые знания и навыки</p>
+            <a href="#pricing" class="btn btn-primary" style="background: white; color: var(--primary-color); margin-top: 2rem;">Начать бесплатно</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-logo">Scoolfy</div>
+                    <p>Современная платформа онлайн-обучения с лучшими преподавателями и актуальными курсами</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-vk"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Курсы</h3>
+                    <ul>
+                        <li><a href="#">Программирование</a></li>
+                        <li><a href="#">Дизайн</a></li>
+                        <li><a href="#">Маркетинг</a></li>
+                        <li><a href="#">Бизнес</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>О нас</h3>
+                    <ul>
+                        <li><a href="#">Преподаватели</a></li>
+                        <li><a href="#">Отзывы</a></li>
+                        <li><a href="#">Вакансии</a></li>
+                        <li><a href="#">Контакты</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Поддержка</h3>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Помощь</a></li>
+                        <li><a href="#">Условия использования</a></li>
+                        <li><a href="#">Политика конфиденциальности</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2024 Scoolfy. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
